@@ -24,3 +24,11 @@ function startGame() {
     cells[i].addEventListener("click", turnClick, false);
   }
 }
+
+function turnClick(square) {
+  if (typeof origBoard[square.target.id] == "number") {
+    turnClick(square.target.id, huPlayer);
+    if (!checkWin(origBoard, huPlayer) && !checkTie())
+      turn(bestSpot(), aiPlayer);
+  }
+}
