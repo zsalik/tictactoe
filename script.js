@@ -1,5 +1,5 @@
 var origBoard;
-const huPlayer = "0";
+const huPlayer = "O";
 const aiPlayer = "X";
 const winCombos = [
   [0, 1, 2],
@@ -27,7 +27,7 @@ function startGame() {
 
 function turnClick(square) {
   if (typeof origBoard[square.target.id] == "number") {
-    turnClick(square.target.id, huPlayer);
+    turn(square.target.id, huPlayer);
     if (!checkWin(origBoard, huPlayer) && !checkTie())
       turn(bestSpot(), aiPlayer);
   }
